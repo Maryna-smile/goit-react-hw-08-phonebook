@@ -1,30 +1,32 @@
+# Phonebook
+Application for storing phone book contacts. The ability to register, login and update the user, as well as work with a private collection of contacts, has been implemented.
 
-### Hi there 👋, my name is Marina
-#### I am a Frontend developer
-![I am a Frontend developer](https://arturssmirnovs.github.io/github-profile-readme-generator/images/banner.png)
-
-I made this project just for fun, it allows you to create nice and simple GitHub Readme files that you can copy/paste and use in your profile.
-
-Skills: REDUX TOOLKIT/ REACT / JS / HTML / CSS
-
-- 🌱 I’m currently learning how to add the ability to register, log in and how to work with a private collection of contacts. 
+Created with
+[Create React App](https://github.com/facebook/create-react-app)
 
 
-[<img src='https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/github.svg' alt='github' height='40'>](https://github.com/Maryna-smile)  [<img src='https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/linkedin.svg' alt='linkedin' height='40'>](https://www.linkedin.com/in/https://t.me/MNISHAPPY/)  
+## Author
 
-[![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=Maryna-smile)](https://github.com/anuraghazra/github-readme-stats)
+😉 [Maryna-smile](https://www.github.com/Maryna-smile) 
++ [Linkedin](https://www.linkedin.com/in/maryna-naidych-485197247/)  
++ [Telegram](https://t.me/MNISHAPPY) 
+  
+## Deployment
 
-![GitHub Activity Graph](https://activity-graph.herokuapp.com/graph?username=Maryna-smile)  
+To deploy this project run
 
-![GitHub metrics](https://metrics.lecoq.io/Maryna-smile)  
+```bash
+  npm start
+```
+
+## 🌺 About Me
+
+I have recently finished my IT courses at GoIT Academy as a Front-End developer. Having completed courses, I have gained knowledge of HTML, CSS, GIT, SASS, JavaScript, React, Redux, Webpack, RestAPI, and currently developing my skills in TypeScript and Node.js. In addition to this, I have priceless experience with implementing both individual and team projects (I was a Scrum Master on one of the team projects). 
+
+I look forward to working for a company whose mission I firmly believe in, such as your own. I look for jobs about which I am passionate because this allows me to be extremely productive and creative. Also, it is very important for me to have an opportunity to grow and progress within the company. And of course, to achieve a healthy work/life balance.
 
 
-### Template
-Створено за допомогою
-[Create React App](https://github.com/facebook/create-react-app) 
+## Feedback
 
+If you have any feedback, please reach out to me at maryna.naidych@gmail.com 📧
 
-### Мої контакти:
-###### [Linkedin](https://www.linkedin.com/in/maryna-naidych-485197247/) 
-###### [Telegram](https://t.me/MNISHAPPY) 
-######  maryna.naidych@gmail.com :email:
