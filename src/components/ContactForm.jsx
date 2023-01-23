@@ -2,7 +2,10 @@ import { Button, TextField } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { addContact } from 'redux/contacts/operations';
 import { selectContacts } from 'redux/selectors';
 
@@ -28,7 +31,7 @@ export default function ContactForm() {
     };
 
     if (contacts.some(el => el.name === name)) {
-      toast('Contact already exists');
+      toast('This contact already exists');
       return;
     }
     dispatch(addContact(newContact));
@@ -62,6 +65,10 @@ export default function ContactForm() {
               mt: '1rem',
               // m: '0 auto'
             }}
+            type="text"
+            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+            title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+            required
           />
 
           <TextField
@@ -69,15 +76,19 @@ export default function ContactForm() {
             label="Number"
             variant="outlined"
             placeholder="enter contact`s name"
-            name="name"
+            name="number"
             onChange={handleInputNumberChange}
             value={number}
             sx={{
               mt: '1rem',
               // m: '0 auto'
             }}
+            type="tel"
+            pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+            title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+            required
           />
-
+          <ToastContainer />
           <Button
             variant="contained"
             color="primary"

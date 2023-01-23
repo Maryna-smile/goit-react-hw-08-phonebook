@@ -52,6 +52,7 @@ export default function LoginPage() {
             onChange={handleInputChange}
             value={email}
             sx={{ mt: '1rem' }}
+            required
           />
 
           <TextField
@@ -63,6 +64,7 @@ export default function LoginPage() {
             onChange={handleInputChange}
             value={password}
             sx={{ mt: '1rem' }}
+            required
           />
           <Button type='submit' variant="contained" color="primary" sx={{ mt: '1rem' }}>
             Login

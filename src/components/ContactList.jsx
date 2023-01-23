@@ -2,22 +2,22 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts, selectFilter } from '../redux/selectors';
 import { deleteContact } from 'redux/contacts/operations';
+import { Button } from '@mui/material';
 
 export default function ContactList() {
   const contacts = useSelector(selectContacts);
 
   const filter = useSelector(selectFilter);
- 
+
   const dispatch = useDispatch();
 
   const filteredContacts = contacts.filter(el =>
     el.name.toLowerCase().trim().includes(filter.toLowerCase().trim())
   );
 
-const handleRemove = id => {dispatch(deleteContact(id));
-console.log(id)};
-
-
+  const handleRemove = id => {
+    dispatch(deleteContact(id));
+  };
 
   return (
     <ul>
@@ -25,7 +25,15 @@ console.log(id)};
         return (
           <li key={id}>
             {name}: {number}
-            <button type="button" onClick={() => handleRemove(id)}>Delete</button>
+            <Button
+              type="button"
+              onClick={() => handleRemove(id)}
+              variant="contained"
+              color="primary"
+              sx={{ alignItems: 'center' }}
+            >
+              Delete
+            </Button>
           </li>
         );
       })}

@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 // import { fetchRegisterUser } from '../redux/register/operationsRegister';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Button, TextField } from '@mui/material';
 import { Box } from '@mui/system';
 import { register } from 'redux/auth/authOperations';
+import { ToastContainer, toast } from 'react-toastify';
+import { selectToken } from 'redux/selectors';
 
 export default function RegisterPage() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const token = useSelector(selectToken);
 
   const dispatch = useDispatch();
 
@@ -26,6 +30,9 @@ export default function RegisterPage() {
     e.preventDefault();
     console.log('helloo');
     dispatch(register({ name, email, password }));
+    if (!token) {
+      toast('Something went wrong, please try again');
+    }
     setName('');
     setEmail('');
     setPassword('');
@@ -54,10 +61,8 @@ export default function RegisterPage() {
             name="name"
             onChange={handleInputChange}
             value={name}
-            sx={{
-              mt: '1rem',
-              // m: '0 auto'
-            }}
+            sx={{ mt: '1rem' }}
+            required
           />
 
           <TextField
@@ -69,6 +74,7 @@ export default function RegisterPage() {
             onChange={handleInputChange}
             value={email}
             sx={{ mt: '1rem' }}
+            required
           />
 
           <TextField
@@ -80,9 +86,15 @@ export default function RegisterPage() {
             onChange={handleInputChange}
             value={password}
             sx={{ mt: '1rem' }}
+            required
           />
-
-          <Button type='submit' variant="contained" color="primary" sx={{ mt: '1rem' }}>
+          <ToastContainer />
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            sx={{ mt: '1rem' }}
+          >
             Register
           </Button>
         </Box>
