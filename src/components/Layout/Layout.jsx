@@ -1,8 +1,9 @@
-import { Divider, Typography } from '@mui/material';
+import { Divider } from '@mui/material';
 import React, { Suspense } from 'react';
 import { Outlet } from 'react-router-dom';
 
 import AppBar from 'components/AppBar/AppBar';
+import { Footer, Link, Text } from './Layout.styled';
 
 export default function Layout() {
   return (
@@ -14,31 +15,15 @@ export default function Layout() {
           <Outlet />
         </Suspense>
       </main>
-
-      <footer
-        style={{
-          height: '5%',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-around',
-        }}
-      >
-        <Divider />
-        <Typography
-          sx={{
-            textAlign: 'center',
-            alignItems: 'center',
-            fontWeight: 'light',
-            fontSize: 'default',
-          }}
-        >
-          @made by{' '}
-          <a href="https://github.com/Maryna-smile" target="blank">
+      <Divider />
+      <Footer>
+       
+        <Text>
+          @made by  <Link href="https://github.com/Maryna-smile" target="blank">
             Maryna-smile
-          </a>{' '}
-          2023
-        </Typography>
-      </footer>
+          </Link>  2023
+        </Text>
+      </Footer>
     </>
   );
 }

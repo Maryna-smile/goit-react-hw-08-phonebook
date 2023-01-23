@@ -3,6 +3,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFilterValue } from 'redux/filterSlise/filterSlice';
 import { selectFilter } from 'redux/selectors';
+import { Caption, Container } from './Filter.styled';
 
 export default function Filter() {
   const dispatch = useDispatch();
@@ -14,8 +15,8 @@ export default function Filter() {
   };
 
   return (
-    <>
-      <p>Find contacts by name</p>
+    <Container>
+      <Caption>Find contacts by name</Caption>
 
       <TextField
         onChange={handleFilterInput}
@@ -31,20 +32,8 @@ export default function Filter() {
           // m: '0 auto'
         }}
       />
-    </>
+    </Container>
   );
 }
 
-// <>
-//
-//   <input
-//     className={css.input}
-//     type="text"
-//     name="name"
-//     pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-//     title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-//     onChange={handleFilterInput}
-//     value={filter}
-//   />
-// </label>
-// </>
+

@@ -7,10 +7,10 @@ import { PrivateRoute } from 'components/PrivateRoute';
 import { RestrictedRoute } from './components/PublicRoute';
 import NotFoundPage from 'pages/NotFoundPage/NotFoundPage';
 
-const HomePage = lazy(() => import('../src/pages/HomePage'));
-const RegisterPage = lazy(() => import('../src/pages/RegisterPage'));
-const LoginPage = lazy(() => import('../src/pages/LoginPage'));
-const ContactsPage = lazy(() => import('../src/pages/ContactsPage'));
+const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
+const RegisterPage = lazy(() => import('./pages/RegisterPage/RegisterPage'));
+const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
+const ContactsPage = lazy(() => import('./pages/ContactsPage/ContactsPage'));
 
 export default function App() {
   const dispatch = useDispatch();

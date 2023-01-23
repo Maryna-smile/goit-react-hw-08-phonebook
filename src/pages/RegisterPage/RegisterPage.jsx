@@ -1,36 +1,49 @@
 import React, { useState } from 'react';
-// import { fetchLoginUser } from '../redux/register/operationsRegister';
-import { useDispatch } from 'react-redux';
+// import { fetchRegisterUser } from '../redux/register/operationsRegister';
+import { useDispatch, useSelector } from 'react-redux';
+import { TextField } from '@mui/material';
 import { Box } from '@mui/system';
-import { Button, TextField } from '@mui/material';
-import { logIn } from 'redux/auth/authOperations';
+import { register } from 'redux/auth/authOperations';
+import { ToastContainer, toast } from 'react-toastify';
+import { selectToken } from 'redux/selectors';
+import { Button } from './RegisterPage.styled';
 
-export default function LoginPage() {
+export default function RegisterPage() {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const token = useSelector(selectToken);
+
   const dispatch = useDispatch();
 
-  const loginedUser = {
+  const userObj = {
+    name: setName,
     email: setEmail,
     password: setPassword,
   };
 
   const handleInputChange = e => {
-    loginedUser[e.target.name](e.target.value);
+    userObj[e.target.name](e.target.value);
   };
 
-  const handleLoginSubmit = e => {
+  const handleSubmit = e => {
     e.preventDefault();
-    dispatch(logIn({ email, password }));
+    console.log('helloo');
+    dispatch(register({ name, email, password }));
+    if (!token) {
+      toast('Something went wrong, please try again');
+    }
+    setName('');
     setEmail('');
     setPassword('');
   };
 
   return (
     <>
-      <div>Login Page</div>
-      <form onSubmit={handleLoginSubmit}>
+   
+      <form onSubmit={handleSubmit}>
+      <ToastContainer />
         <Box
           sx={{
             display: 'flex',
@@ -42,6 +55,17 @@ export default function LoginPage() {
             borderRadius: 1,
           }}
         >
+          <TextField
+            id="outlined-basic"
+            label="Name"
+            variant="outlined"
+            placeholder="enter your name"
+            name="name"
+            onChange={handleInputChange}
+            value={name}
+            sx={{ mt: '1rem' }}
+            required
+          />
 
           <TextField
             id="outlined-basic"
@@ -66,8 +90,11 @@ export default function LoginPage() {
             sx={{ mt: '1rem' }}
             required
           />
-          <Button type='submit' variant="contained" color="primary" sx={{ mt: '1rem' }}>
-            Login
+         
+          <Button
+            type="submit"
+          >
+            Register
           </Button>
         </Box>
       </form>
