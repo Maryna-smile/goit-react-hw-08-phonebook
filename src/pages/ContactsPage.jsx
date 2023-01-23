@@ -1,15 +1,13 @@
-import { ContactForm } from './ContactForm/ContactForm';
-import { ContactList } from './ContactList/ContactList';
-import { Filter } from './Filter/Filter';
-import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import { fetchContacts } from 'redux/operations';
+import React, { useEffect } from 'react';
+import ContactForm from 'components/ContactForm';
+import Filter from 'components/Filter';
+import ContactList from 'components/ContactList';
+import { fetchContacts } from 'redux/contacts/operations';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts, selectError, selectIsLoading } from 'redux/selectors';
 
 
-import css from './App.module.css';
-
-export const App = () => {
+export default function ContactsPage() {
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
   const isLoading = useSelector(selectIsLoading);
@@ -20,13 +18,13 @@ export const App = () => {
   }, [dispatch]);
 
   return (
-    <div className={css.section}>
+    <>
       <h1>Phonebook </h1>
       <ContactForm />
       {contacts.length > 0 && <h2>Contacts</h2>}
       {contacts.length > 0 && <Filter />}
       <ContactList />
       {isLoading && !error && <h2>Request in progress ...</h2>}
-    </div>
+    </>
   );
-};
+}
