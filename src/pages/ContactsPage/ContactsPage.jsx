@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import ContactForm from 'components/ContactForm/ContactForm';
-import Filter from 'components/Filter/Filter';
-import ContactList from 'components/ContactList/ContactList';
 import { fetchContacts } from 'redux/contacts/operations';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts, selectError, selectIsLoading } from 'redux/selectors';
+import ContactForm from 'components/ContactForm/ContactForm';
+import Filter from 'components/Filter/Filter';
+import ContactList from 'components/ContactList/ContactList';
 import { Caption, Container } from './ContactsPage.styled';
 
 export default function ContactsPage() {

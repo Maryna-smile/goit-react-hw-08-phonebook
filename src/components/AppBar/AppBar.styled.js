@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { NavLink } from 'react-router-dom';
 
 export const Header = styled.header`
- display: flex;
+  display: flex;
   align-items: center;
   justify-content: space-around;
   font-size: 20px;
@@ -10,8 +10,8 @@ export const Header = styled.header`
 `;
 
 export const Navigation = styled(NavLink)`
-margin-right: 10px;
- font-size: 20px;
+  margin-right: 10px;
+  font-size: 20px;
 `;
 
 export const NavLeft = styled.div`

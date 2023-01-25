@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Box } from '@mui/system';
 import { TextField } from '@mui/material';
 import { logIn } from 'redux/auth/authOperations';
-import { Button } from './LoginPage.styled';
 import { selectToken } from 'redux/selectors';
 import { toast, ToastContainer } from 'react-toastify';
+import { Button } from './LoginPage.styled';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -59,7 +59,6 @@ export default function LoginPage() {
             sx={{ mt: '1rem' }}
             required
           />
-
           <TextField
             id="outlined-basic"
             label="Password"

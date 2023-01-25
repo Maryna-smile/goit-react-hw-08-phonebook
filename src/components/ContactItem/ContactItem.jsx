@@ -27,25 +27,23 @@ export default function ContactItem({ contact }) {
     dispatch(deleteContact(id));
   };
 
-  const handleNameChange = (e) => {
-    setName(e.target.value)
-  }
+  const handleNameChange = e => {
+    setName(e.target.value);
+  };
 
-  const handleNumberChange = (e) => {
-    setNumber(e.target.value)
-      }
+  const handleNumberChange = e => {
+    setNumber(e.target.value);
+  };
 
   const handleEditSubmit = e => {
     e.preventDefault();
     const editedContact = {
       id: contact.id,
       name: name || contact.name,
-      number: number || contact.umber
-    }
+      number: number || contact.umber,
+    };
     dispatch(updateContact(editedContact));
-    // setName('');
-    // setNumber('')
-    setIsOpen(false)
+    setIsOpen(false);
   };
 
   return (
@@ -55,32 +53,44 @@ export default function ContactItem({ contact }) {
           {contact.name}: {contact.number}
         </p>
         <DeleteBtn type="button" onClick={() => handleRemove(contact.id)}>
-        <Delete/>
+          <Delete />
         </DeleteBtn>
 
         <Edit type="button" onClick={() => setIsOpen(prev => !prev)}>
           <Pencil />
         </Edit>
       </Item>
-
       {isOpen && (
         <FormEl onSubmit={handleEditSubmit}>
           <FlexWrapper>
             <Label>
-              <Input type="text" placeholder=" " value={name} name="name" 
-               pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-             title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan" onChange={handleNameChange}/>
+              <Input
+                type="text"
+                placeholder=" "
+                value={name}
+                name="name"
+                pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+                title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+                onChange={handleNameChange}
+              />
               <Span>Name:</Span>
             </Label>
-
             <Label>
-              <Input type="tel" placeholder=" " value={number} name="number" 
-               pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-               title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"onChange={handleNumberChange}/>
+              <Input
+                type="tel"
+                placeholder=" "
+                value={number}
+                name="number"
+                pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+                title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+                onChange={handleNumberChange}
+              />
               <Span>Number:</Span>
             </Label>
           </FlexWrapper>
-          <OkBtn type="submit"><Good /></OkBtn>
+          <OkBtn type="submit">
+            <Good />
+          </OkBtn>
         </FormEl>
       )}
     </div>

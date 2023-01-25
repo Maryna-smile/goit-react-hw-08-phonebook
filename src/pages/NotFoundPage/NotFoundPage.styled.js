@@ -1,5 +1,5 @@
-import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
+import styled from '@emotion/styled';
 
 export const Button = styled(Link)`
   display: inline-block;
@@ -17,7 +17,7 @@ export const Button = styled(Link)`
 `;
 
 export const NotFoundImg = styled.img`
-display: block;
+  display: block;
   text-align: center;
   width: 50%;
   margin: 0 auto;

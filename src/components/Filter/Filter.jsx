@@ -11,7 +11,7 @@ export default function Filter() {
 
   const handleFilterInput = e => {
     dispatch(getFilterValue(e.target.value));
-    console.log(e.target.value)
+    console.log(e.target.value);
   };
 
   return (
@@ -29,11 +29,9 @@ export default function Filter() {
         name="name"
         sx={{
           mt: '1rem',
-          alignItems: 'center'
+          alignItems: 'center',
         }}
       />
     </Container>
   );
 }
-
-

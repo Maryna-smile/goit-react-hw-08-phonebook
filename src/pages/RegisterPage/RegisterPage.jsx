@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { TextField } from '@mui/material';
-import { Box } from '@mui/system';
 import { register } from 'redux/auth/authOperations';
 import { ToastContainer, toast } from 'react-toastify';
+import { TextField } from '@mui/material';
 import { selectToken } from 'redux/selectors';
+import { Box } from '@mui/system';
 import { Button } from './RegisterPage.styled';
 
 export default function RegisterPage() {
@@ -30,7 +30,9 @@ export default function RegisterPage() {
     e.preventDefault();
     console.log('helloo');
     dispatch(register({ name, email, password }));
-    if (!token) {toast('Something went wrong, please try again')}
+    if (!token) {
+      toast('Something went wrong, please try again');
+    }
     setName('');
     setEmail('');
     setPassword('');
@@ -38,9 +40,8 @@ export default function RegisterPage() {
 
   return (
     <>
-   
       <form onSubmit={handleSubmit}>
-      <ToastContainer />
+        <ToastContainer />
         <Box
           sx={{
             display: 'flex',
@@ -87,12 +88,8 @@ export default function RegisterPage() {
             sx={{ mt: '1rem' }}
             required
           />
-         
-          <Button
-            type="submit"
-          >
-            Register
-          </Button>
+
+          <Button type="submit">Register</Button>
         </Box>
       </form>
     </>

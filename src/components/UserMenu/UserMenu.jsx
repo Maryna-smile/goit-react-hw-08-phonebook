@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { logOut } from 'redux/auth/authOperations';
@@ -15,6 +14,6 @@ export default function UserMenu() {
       <Button type="button" onClick={() => dispatch(logOut())}>
         Logout
       </Button>
-      </>
+    </>
   );
 }

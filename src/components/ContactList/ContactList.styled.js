@@ -41,7 +41,6 @@ margin-left: 20px;
     box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
   }
 `
-
 export const List= styled.ul`
 margin: 20px 0;
 padding: 0;

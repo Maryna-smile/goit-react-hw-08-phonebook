@@ -17,7 +17,6 @@ export const fetchRegisterUser = createAsyncThunk (
     }
   )
 
-
   export const fetchLoginUser = createAsyncThunk (
    'login/fetchLoginUser',
    async (user, { rejectWithValue }) => {

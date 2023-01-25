@@ -56,10 +56,9 @@ export const Item = styled.li`
   border-radius: 5px;
 `;
 
-
 export const FormEl = styled.form`
   display: flex;
-position: relative;
+  position: relative;
   margin-bottom: 10px;
   justify-content: space-between;
   align-items: center;

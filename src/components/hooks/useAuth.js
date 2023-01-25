@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux';
 import {
   selectUser,
-  
   selectIsRefreshing,
   selectIsLogIn,
 } from '../../redux/selectors';

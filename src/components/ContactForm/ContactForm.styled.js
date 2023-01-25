@@ -2,13 +2,12 @@ import styled from '@emotion/styled';
 
 export const Form = styled.form`
   display: flex;
-  // flex-direction: column;
   justify-content: center;
   gap: 10px;
 `;
 
 export const Button = styled.button`
-margin-top: 10px;
+  margin-top: 10px;
   align-items: center;
   align-self: center;
   background-color: rgb(116, 1, 81);
@@ -46,4 +45,4 @@ margin-top: 10px;
   &focus {
     box-shadow: rgba(0, 0, 0, 0.3) 2px 8px 4px -6px;
   }
-`;
+`
