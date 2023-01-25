@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 
 export const Button = styled.button`
 margin-top: 10px;
+margin-left: 20px;
   align-items: center;
   align-self: center;
   background-color: rgb(116, 1, 81);
@@ -17,7 +18,7 @@ margin-top: 10px;
   color: #f3eff2;
   cursor: pointer;
   display: inline-block;
-  font-family: Neucha, sans-serif;
+  font-family: inherit, 
   font-size: 1rem;
   line-height: 23px;
   outline: none;
@@ -51,4 +52,7 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 font-size: 20px;
+padding: 10px;
+border: 1px solid rgb(116, 1, 81);
+border-radius: 5px;
 `

@@ -29,7 +29,7 @@ export default function Filter() {
         name="name"
         sx={{
           mt: '1rem',
-          // m: '0 auto'
+          alignItems: 'center'
         }}
       />
     </Container>

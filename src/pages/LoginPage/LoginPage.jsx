@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-// import { fetchLoginUser } from '../redux/register/operationsRegister';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Box } from '@mui/system';
 import { TextField } from '@mui/material';
 import { logIn } from 'redux/auth/authOperations';
@@ -11,6 +10,8 @@ import { toast, ToastContainer } from 'react-toastify';
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const token = useSelector(selectToken);
 
   const dispatch = useDispatch();
 
@@ -26,7 +27,7 @@ export default function LoginPage() {
   const handleLoginSubmit = e => {
     e.preventDefault();
     dispatch(logIn({ email, password }));
-    if (!selectToken) {
+    if (!token) {
       toast('Something went wrong, please try again');
     }
     setEmail('');

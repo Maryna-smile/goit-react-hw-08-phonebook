@@ -7,6 +7,21 @@ import {
 } from './operations';
 import { logOut } from 'redux/auth/authOperations';
 
+const handlePending = (state, action) => {
+  state.isLoading = true;
+};
+
+const handleFulfilled = (state, action) => {
+  state.isLoading = false;
+  state.error = null;
+  state.contacts = action.payload;
+};
+
+const handleReject = (state, action) => {
+  state.isLoading = false;
+  state.error = action.payload;
+};
+
 export const contactsSlice = createSlice({
   name: 'contacts',
   initialState: {
@@ -16,62 +31,44 @@ export const contactsSlice = createSlice({
   },
   extraReducers: builder => {
     builder
-      .addCase(fetchContacts.pending, (state, action) => {
-        state.isLoading = true;
-      })
-      .addCase(fetchContacts.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
-        state.contacts = action.payload;
-      })
-      .addCase(fetchContacts.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      })
-      .addCase(addContact.pending, (state, action) => {
-        state.isLoading = true;
-      })
+      .addCase(fetchContacts.pending, handlePending)
+      .addCase(fetchContacts.rejected, handleReject)
+      .addCase(fetchContacts.fulfilled, handleFulfilled)
+
+      .addCase(addContact.pending, handlePending)
+      .addCase(addContact.rejected, handleReject)
       .addCase(addContact.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
         state.contacts.push(action.payload);
       })
-      .addCase(addContact.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      })
-      .addCase(deleteContact.pending, (state, action) => {
-        state.isLoading = true;
-      })
+      .addCase(deleteContact.pending, handlePending)
+      .addCase(deleteContact.rejected, handleReject)
       .addCase(deleteContact.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        const index = state.contacts.findIndex(
-          task => task.id === action.payload.id
+        state.contacts = state.contacts.filter(
+          el => el.id !== action.payload.id
         );
-        state.contacts.splice(index, 1);
       })
-      .addCase(deleteContact.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
-      })
+      .addCase(logOut.pending, handlePending)
+      .addCase(logOut.rejected, handleReject)
       .addCase(logOut.fulfilled, (state, action) => {
         state.contacts = [];
         state.error = null;
         state.isLoading = false;
       })
-      //??????????
-      .addCase(updateContact.pending, (state, action) => {
-        state.isLoading = true;
-      })
+      .addCase(updateContact.pending, handlePending)
+      .addCase(updateContact.rejected, handleReject)
       .addCase(updateContact.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.contacts = action.payload;
-      })
-      .addCase(updateContact.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.payload;
+        state.contacts = state.contacts.map(el => {
+          if (el.id === action.payload.id) {
+            return action.payload;
+          }
+          return el;
+        });
       });
   },
 });

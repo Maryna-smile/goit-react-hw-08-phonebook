@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import { fetchRegisterUser } from '../redux/register/operationsRegister';
 import { useDispatch, useSelector } from 'react-redux';
 import { TextField } from '@mui/material';
 import { Box } from '@mui/system';
@@ -31,9 +30,7 @@ export default function RegisterPage() {
     e.preventDefault();
     console.log('helloo');
     dispatch(register({ name, email, password }));
-    if (!token) {
-      toast('Something went wrong, please try again');
-    }
+    if (!token) {toast('Something went wrong, please try again')}
     setName('');
     setEmail('');
     setPassword('');

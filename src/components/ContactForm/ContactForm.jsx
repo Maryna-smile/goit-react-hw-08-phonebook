@@ -45,6 +45,12 @@ export default function ContactForm() {
       <Form onSubmit={handleAddButtonClick}>
         <ToastContainer />
         <TextField
+          inputProps={{
+            pattern:
+              "^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$",
+            title:
+              "Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan",
+          }}
           id="outlined-basic"
           label="Name"
           variant="outlined"
@@ -56,12 +62,16 @@ export default function ContactForm() {
             mt: '1rem',
           }}
           type="text"
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-          title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           required
         />
-
         <TextField
+          inputProps={{
+            inputMode: 'numeric',
+            pattern:
+              /\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}/,
+            title:
+              'Phone number must be digits and can contain spaces, dashes, parentheses and can start with +',
+          }}
           id="outlined-basic"
           label="Number"
           variant="outlined"
@@ -73,11 +83,9 @@ export default function ContactForm() {
             mt: '1rem',
           }}
           type="tel"
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
-          title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           required
         />
-        <Button onClick={handleAddButtonClick}>Add contact</Button>
+        <Button type="submit">Add contact</Button>
       </Form>
     </>
   );

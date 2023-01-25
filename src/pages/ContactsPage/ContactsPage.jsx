@@ -18,18 +18,18 @@ export default function ContactsPage() {
   }, [dispatch]);
 
   return (
-    <><Container>
-      <div>
-      <Caption>Phonebook contacts</Caption>
-      {isLoading && !error && <h2>Request in progress ...</h2>}
-      <ContactForm />
-      </div>
-      <div>
-      {contacts.length > 0 && <Filter />}
-      <ContactList />
-      </div>
+    <>
+      <Container>
+        <div>
+          {isLoading && !error && <h2>Request in progress ...</h2>}
+          <Caption>Phonebook contacts</Caption>
+          <ContactForm />
+        </div>
+        <div>
+          {contacts.length > 0 && <Filter />}
+          <ContactList />
+        </div>
       </Container>
-      
     </>
   );
 }

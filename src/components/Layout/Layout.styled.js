@@ -4,7 +4,7 @@ export const Footer = styled.footer`
 display:flex;
 justify-content: center;
 gap: 10px;   
-height: 15%,
+padding: 20px 0;
 `;
 
 export const Text = styled.p`
