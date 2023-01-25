@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteContact, updateContact } from 'redux/contacts/operations';
 import {
-  Button,
   Item,
   Edit,
   FormEl,

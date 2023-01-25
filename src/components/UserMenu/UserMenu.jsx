@@ -10,13 +10,11 @@ export default function UserMenu() {
   const name = useSelector(selectUserName);
 
   return (
-    // <FlexWrapper>
     <>
       <Text>Hello, {name}</Text>
       <Button type="button" onClick={() => dispatch(logOut())}>
         Logout
       </Button>
       </>
-    // </FlexWrapper>
   );
 }
